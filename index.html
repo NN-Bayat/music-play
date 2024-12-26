@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
+    <title>music paly</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav__header">
+            <div class="nav__logo">
+                <a href="#">pl<span><i class="ri-play-fill"></i></span>y</a>
+            </div>
+
+            <div class="nav__menu__btn" id="menu-btn">
+                <span><i class="ri-menu-3-line"></i></span>
+            </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Trending</a></li>
+            <li><a href="#">Collections</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="nav__btns">
+            <button class="btn">Sign Up</button>
+        </div>
+    </nav>
+
+    <header class="section__container header__container">
+        <div class="header__image">
+            <img src="img/header.jpg" alt="header">
+        </div>
+
+        <div class="header__content">
+            <h2>CREATE PLAYLIST & SHARE IT WITH YOUR FRIENDS</h2>
+            <h1>MUSIC FOR YOUR CURRENT MOOD</h1>
+            <p>
+                Discover the perfect soundtrack for every moment with our 'Music for Your Current Mood' section. Whether
+                you're feeling upbeat, reflective, or somewhere in between, explore curated playlists and tunes tailored
+                to match your mood.
+            </p>
+            <div class="header__btns">
+                <a href="https://play.google.com/"><img src="img/google-play.jpg" alt="google"></a>
+                <a href="https://www.apple.com/app-store/"><img src="img/app-store.jpg" alt="store"></a>
+            </div>
+        </div>
+    </header>
+
+
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const navLinks = document.getElementById("nav-links");
+        const menuBtnIcon = menuBtn.querySelector("i");
+
+        menuBtn.addEventListener("click", (e) => {
+            navLinks.classList.toggle("open");
+
+            const isOpen = navLinks.classList.contains("open");
+            menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-3-line");
+        });
+
+        navLinks.addEventListener("click", (e) => {
+            navLinks.classList.remove("open");
+            menuBtnIcon.setAttribute("class", "ri-menu-3-line");
+        });
+
+        const scrollRevealOption = {
+            distance: "50px",
+            origin: "bottom",
+            duration: 1000,
+        };
+
+        ScrollReveal().reveal(".header__image img", {
+            ...scrollRevealOption,
+            origin: "right",
+        });
+        ScrollReveal().reveal(".header__content h2", {
+            ...scrollRevealOption,
+            delay: 500,
+        });
+        ScrollReveal().reveal(".header__content h1", {
+            ...scrollRevealOption,
+            delay: 1000,
+        });
+        ScrollReveal().reveal(".header__content p", {
+            ...scrollRevealOption,
+            delay: 1500,
+        });
+        ScrollReveal().reveal(".header__btns", {
+            ...scrollRevealOption,
+            delay: 2000,
+        });
+    </script>
+</body>
+
+</html>
